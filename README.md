@@ -5,7 +5,7 @@ Description
 
 Chef cookbook intended for managing & deployment of multiple rack-based applications living on one server behind nginx. Supports asset pipeline right from the box.
 
-Uses nginx + Unicorn to run applications.
+Uses nginx + unicorn to run applications.
 
 Requirements
 ============
@@ -31,28 +31,28 @@ Here is a sample YAML representation of attributes hierarchy:
     rails_ghetto:
       deployment_user: deploy
       deployment_group: deploy
-      apps_root: '/var/www/apps'
+      apps_root: /var/www/apps
       applications:
         - sample:
             repository: git@github.com:account/application.git
             revision: master
-            deploy_key: '/home/root/.ssh/github'
+            deploy_key: /home/root/.ssh/github
             unicorn_port: 8080
-            server_name: 'production.example.com'
+            server_name: production.example.com
             compile_assets: true
             run_migrations: true
-            rails_environment: 'production'
-            database: { adapter: mysql2, encoding: 'utf8', database: 'sample', username: 'root', password: 'changeit', socket: '/tmp/mysql.sock' }
+            rails_environment: production
+            database: { adapter: mysql2, encoding: utf8, database: sample, username: root, password: changeit, socket: /tmp/mysql.sock }
         - sample2:
             repository: git@github.com:account/application.git
             revision: master
-            deploy_key: '/home/root/.ssh/github'
+            deploy_key: /home/root/.ssh/github
             unicorn_port: 8081
-            server_name: 'staging.example.com'
+            server_name: staging.example.com
             compile_assets: false
             run_migrations: true
-            rails_environment: 'staging'
-            database: { adapter: postgresql, encoding: 'utf8', database: 'sample2', username: 'root', password: 'changeit', socket: '/tmp/mysql.sock' }
+            rails_environment: staging
+            database: { adapter: postgresql, database: sample2, username: root, password: changeit }
 
 
 © 2012 [Igor Afonov](https://iafonov.github.com) MIT License
