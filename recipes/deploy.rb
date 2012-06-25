@@ -1,6 +1,10 @@
 deployment_user  = node['rails_ghetto']['deployment_user']
 deployment_group = node['rails_ghetto']['deployment_group']
 
+Array(node['rails_ghetto']['libs']).each do |lib|
+  package lib
+end
+
 rails_applications do |name, app|
   application name do
     path "/var/www/apps/#{name}"
